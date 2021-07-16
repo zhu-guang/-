@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main()
+{
+	int i,j;               //i：行。j：列 
+	printf("   ");
+	for(j=1;j<=9;j++)
+	{
+		printf("%d  ",j);
+	}
+		printf("\n");
+		printf("  ");
+	for(j=1;j<=9;j++)
+		printf(" ═ ");
+		printf("\n");
+	for(i=1;i<=9;i++)
+	    {
+          printf("%d",i);
+          printf("║");
+          for(j=1;j<=9;j++)
+         {
+         	
+         	printf(" %d",i*j);
+			 if(i*j<10) printf(" "); //保证对齐 
+            }
+            printf("\n");
+            printf("\n");
+		  }
+		  return 0;
+	}

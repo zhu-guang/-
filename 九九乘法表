@@ -1,4 +1,57 @@
 #include <stdio.h>
+
+int main()  //标准答案九九乘法表
+{
+	 int  i, j;
+	 for (i=1; i<10; i++)
+	       printf("%4d", i);    	/*打印表头*/
+	 printf("\n");
+	 for (i=1; i<10; i++)
+	       printf("   -");           	/*打印表头*/
+	 printf("\n");
+
+	 for (i=1; i<10; i++){	/*打印乘法表*/
+	       for (j=1; j<10; j++){
+                          printf("%4d", i*j);
+                      }
+	        printf("\n");
+  	 }
+  	 return 0;
+}
+
+//个人晋级版（用%4d调整空格）
+/*
+int main()
+{
+	int i,j;      
+	printf("  ");         //i：行。j：列 
+	for(j=1;j<=9;j++)
+	{
+		printf("%4d",j);
+	}
+		printf("\n");
+		printf("  ");
+	for(j=1;j<=9;j++)
+		printf("  ═ ");
+		printf("\n");        //打印表头 
+		
+	for(i=1;i<=9;i++)
+	    {
+          printf("%d",i);
+          printf("║");
+          for(j=1;j<=9;j++)
+         {
+         	printf("%4d",i*j);
+            }
+            printf("\n");
+            printf("\n");
+		  }
+		  return 0;
+	}
+*/
+
+//个人原始九九乘法表
+/*
 int main()
 {
 	int i,j;               //i：行。j：列 
@@ -27,3 +80,4 @@ int main()
 		  }
 		  return 0;
 	}
+*/

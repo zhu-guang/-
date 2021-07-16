@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int a,b,i,j,k,quantity=0;
+	printf("《求n以内的所有素数》\n 输入数字n:");
+	scanf("%d",&a);
+	printf("%d内有以下素数\n",a);
+	for(i=2;i<=a;i++)
+	{
+		b=sqrt(i);
+		k=1;
+		for(j=2;j<=b;j++)
+		{
+		if(i%j==0)
+		k=0;
+		}
+		if(k)
+		printf("%d ",i),quantity++;	 
+		if(k&&quantity%20==0)       //没二十个数换一行，保证输出美观 
+		printf("\n");
+	}
+	printf("\n以上共有%d个素数",quantity);
+	return 0;
+ }

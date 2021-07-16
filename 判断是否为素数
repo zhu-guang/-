@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int a,b=1,c,i;
+	printf("《判断一个数是否为素数》\n"); 
+	printf("请输入一个整数：");
+	scanf("%d",&a);
+	c=sqrt(a);
+	for(i=2;i<=c;i++)
+		if(a%i==0)
+		b=0;
+	if(b)
+	printf("Yes!");		
+	else
+	printf("No!");
+ }

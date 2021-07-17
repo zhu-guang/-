@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+	int cnt=0;
+	int i,j;
+	for(i=0;i<=20;i++)
+	{
+		for(j=0;j<=33;j++)
+		{
+			if(15*i+9*j+(100-i-j)==300)
+			{
+				cnt++;
+				printf("solution: %d, cocks: %d, hens: %d, chickens: %d\n",cnt,i,j,(100-i-j));
+			}
+		}
+	}
+	return 0;	
+}

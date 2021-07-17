@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+	long long a=1,b=1,c,i,d=2;
+	printf("%15lld%15lld",a,b);
+	for(i=1;i<=50;i++)
+	{
+		c=a+b;
+		a=b;
+		b=c;
+		printf("%15lld",c);
+		d++;
+		if(d%10==0)
+		printf("\n"); 
+	}
+}

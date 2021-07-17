@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int a,b,c,d,e,f,g=0,h,i,j=0;
+	printf("《按规律转化数字》\n");
+	printf(" 输入一个整数：");
+	scanf("%d",&a);
+	for(b=a;b>0;b/=10)
+	j++;                    //该数字位数 
+	printf(" 该数字转化为：");
+	if(j%2==0)
+	{
+		c=j/2;
+	    d=a/(int)pow(10,c); //得到前一办数字 
+	    e=a%(int)pow(10,c); //得到后一半数字 
+	 	for( ;d>0;d/=10)   //整数的倒序 
+		{
+	 		f=d%10;
+			g=g*10+f;
+	 	}
+	 	printf("%d",g);
+	 	for( ;e>0;e/=10)
+		{
+	 		h=e%10;
+			i=i*10+h;
+	 	}
+	 	printf("%d",i);
+	}
+	else
+	{
+		int m;
+		c=(j+1)/2;
+		d=a/(int)pow(10,c);
+	    e=a%(int)pow(10,(c-1));
+	    m=a/(int)pow(10,(c-1))-d*10; //得到中间数字 
+	 	for( ;d>0;d/=10)
+		{
+	 		f=d%10;
+			g=g*10+f;
+	 	}
+	 	printf("%d",g);
+	 	printf("%d",m);
+	 	for( ;e>0;e/=10)
+		{
+	 		h=e%10;
+			i=i*10+h;
+	 	}
+	 	printf("%d",i);
+	}
+	return 0;
+}
+
+

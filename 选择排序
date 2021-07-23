@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+	int a[100],b,c,i,j,k,n;
+	srand((unsigned)time(NULL));
+	printf("输入数字个数：");
+	scanf("%d",&n);
+	for(i=0;i<n;i++){
+		a[i]=rand()%100;
+	}
+	for(i=0;i<n;i++){
+		printf("%d ",a[i]);
+	}
+	printf("\n");
+	
+	for(i=0;i<n-1;i++){
+		b=a[i];
+		k=i;
+		for(j=i+1;j<n;j++){
+			if(a[j]<b){
+				k=j;
+				b=a[j];
+			}
+		}
+		if(k!=i){
+			c=a[k];
+			a[k]=a[i];
+			a[i]=c;
+		}
+	}
+		
+	for(i=0;i<n;i++){
+		printf("%d ",a[i]);
+	}
+	return 0;	
+}

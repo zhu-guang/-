@@ -18,3 +18,7 @@
 	   	max=a[i][j];
  		}
  	} 
+	printf("该%d个数中最大的是%d",x*y,max);
+	 return 0;
+ }
+

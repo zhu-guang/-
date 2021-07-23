@@ -1,0 +1,27 @@
+
+#include<stdio.h>
+
+void average (float*a,int n){
+	float sum=0,aver;
+	int i; 
+	for(i=0;i<n;i++){
+		sum=sum+*(a+i);
+	}
+	aver=sum/n;
+	printf("平均成绩为："); 
+	printf("%5.1f\n",aver);
+}
+
+void search(float (*a)[4],int n){
+	int i;
+	printf("第%d个学生的成绩为：",n+1);
+	for(i=0;i<4;i++)
+	printf("%5.1f",a[n][i]); 
+}
+
+int main() {
+   float score[3][4] = {{65,67,70,60},{80,87,90,81},{90,99,100,98}};
+   average(&score[0][0],12);  
+   search(score,2);
+   return 0;
+}

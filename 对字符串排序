@@ -1,0 +1,30 @@
+
+#include<stdio.h>
+#include<string.h>
+#define N 5
+void maopao(char *str[N]){
+	int i,j;
+	char *c;
+	for(i=0;i<N-1;i++){
+		for(j=0;j<N-i-1;j++){
+			if(strcmp(str[j],str[j+1])>0){
+				c=str[j];
+				str[j]=str[j+1];
+				str[j+1]=c;
+			}		
+		}
+	}
+}
+void printfstr(char*str[]){
+	int i;
+	for(i=0;i<N;i++){
+		printf("%s\n",str[i]);
+	}
+}
+	
+int main(){
+	char *str[N]={"apple","banana","pear","peach","watermelon"};
+	maopao(str);
+	printfstr(str);
+	return 0;
+}

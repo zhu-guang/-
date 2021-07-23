@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include <string.h>
+typedef struct{           //定义结构体 
+	char number[10];      //学号 
+	char name[10];        //名字 
+	char zhuanye[10];     // 专业 
+	double chinese;       // 语文成绩 
+	double math;          //数学成绩 
+	double PE;            //体育成绩 
+}student;        
+
+void stuscanf(student stu[], int n){   //输入自定义成绩  
+    for (int i = 0; i < n; i++) {
+       printf("请输入第%d考生学号 姓名 专业 语文成绩 数学成绩 体育成绩：", i+1);
+       scanf("%s%s%s%lf%lf%lf", &stu[i].number,&stu[i].name,&stu[i].zhuanye,&stu[i].chinese, &stu[i].math, &stu[i].PE);       
+    }                      
+    printf("\n");
+}
+
+void aver(student stu[],int n){          //按平均分排序 
+	double a[100];
+	for(int i=0;i<n;i++){
+		a[i]=(stu[i].chinese +stu[i].math+stu[i].PE)/3;
+	}
+	for(int i=0;i<n-1;i++){
+		for(int j=0;j<n-i-1;j++){
+			if(a[j]<a[j+1]){
+				stu[n]=stu[j+1];
+				stu[j+1]=stu[j];
+				stu[j]=stu[n];
+			}
+		}
+	}
+}
+void stuprintf(student stu[],int n){      //排序后输出自定义成绩 
+	printf("学号\t姓名\t专业\t语文成绩 数学成绩 体育成绩\t\n");
+	for(int i=0;i<n;i++){
+		printf("%s\t%s\t%s\t%.1lf\t %.1lf\t  %.1lf\t\n",stu[i].number,stu[i].name,stu[i].zhuanye,stu[i].chinese,stu[i].math,stu[i].PE);
+	}
+}
+
+void seek1(student stu[],int n){         // 用学号查人 
+	char a[10];
+	printf("\n输入要查找的学号："); 
+	scanf("%s",&a);
+	for(int i=0;i<n;i++){
+		if(strcmp(stu[i].number,a)==0){
+			printf("该学号同学信息如下:\n");
+			printf("学号\t姓名\t专业\t语文成绩 数学成绩 体育成绩\t\n");
+			printf("%s\t%s\t%s\t%.1lf\t %.1lf\t  %.1lf\t\n",stu[i].number,stu[i].name,stu[i].zhuanye,stu[i].chinese,stu[i].math,stu[i].PE);
+			printf("该同学位置为排名第%d\n\n",i+1);
+		}
+	}
+}
+
+void seek2(student stu[],int n){      //寻找语文成绩高于数学成绩的同学
+	printf("语文成绩高于数学成绩的同学有：");
+	for(int i=0;i<n;i++){
+		if(stu[i].chinese>stu[i].math){
+			printf("%s  ",stu[i].name);
+		}
+	}
+	printf("\n\n");
+}
+
+void statistics(student stu[] ,int n){ //统计各专业人数 
+	int a=0,b=0,c=0;
+	for(int i=0;i<n;i++){
+		if(strcmp(stu[i].zhuanye,"计算机")==0){
+			a++; 
+		}
+		if(strcmp(stu[i].zhuanye,"软件")==0){
+			b++; 
+		}
+		if(strcmp(stu[i].zhuanye,"网络")==0){
+			c++; 
+		}
+	}
+	printf("计算机专业有：%d人\n软件工程专业有：%d人\n网络工程专业有：%d人\n\n",a,b,c);
+}
+void averchinese(student stu[],int n){   //语文80-90人数与平均分 
+	double sum=0;
+	int j=0;
+	for(int i=0;i<n;i++){
+		if(stu[i].chinese>=80&&stu[i].chinese<=90){
+			sum=sum+stu[i].chinese;
+			j++;
+		}
+	}
+	printf("语文成绩在80-90的人数有：%d人\n其平均成绩为：%.1lf\n\n",j,sum/j);
+}
+
+int main(){
+	int n;
+	printf("请输入学生人数:"); 
+	scanf("%d",&n);
+	student stu[100];
+	stuscanf(stu,n);
+	aver(stu,n);
+	stuprintf(stu,n);
+	seek1(stu,n);
+	seek2(stu,n);
+	statistics(stu,n);
+	averchinese(stu,n);
+}
